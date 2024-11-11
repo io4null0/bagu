@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zalgo Text Tool</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    #output {
+      margin-top: 20px;
+      font-size: 1.5em;
+      color: #333;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+  </style>
+</head>
+<body>
+  <h1>Zalgo Text Generator</h1>
+  <label for="text-input">Enter text:</label>
+  <input type="text" id="text-input" placeholder="Enter your text here">
+  <button onclick="generateZalgo()">Generate Zalgo Text</button>
+
+  <div id="output"></div>
+
+  <script>
+    const zalgoChars = {
+      up: ["̍","̎","̄","̅","̿","̑","̆","̐","͒","͗","͑","̇","̈","̊","͂","̓","̈́","͊","͋","͌","̃","̂","̌","͐","̀","́","̋","̏","̒","̓","̔","̽","̾","͆","̚"],
+      mid: ["̕","̛","̀","́","͘","̡","̢","̧","̨","̴","̵","̶","͜","͝","͞","͟","͠","͢","̸","̷","͡"," ҉"],
+      down: ["̞","̟","̠","̤","̥","̦","̩","̪","̫","̬","̭","̮","̯","̰","̱","̲","̳","̹","̺","̻","̼","ͅ","͇","͈","͉","͍","͎","͓","͔","͕","͖","͙","͚","̣"]
+    };
+
+    function getRandomZalgoChar(type) {
+      return zalgoChars[type][Math.floor(Math.random() * zalgoChars[type].length)];
+    }
+
+    function generateZalgoText(text) {
+      return text.split('').map(char => {
+        if (char === ' ') return char;
+        let zalgoChar = char;
+        for (let i = 0; i < Math.random() * 3 + 1; i++) zalgoChar += getRandomZalgoChar('up');
+        for (let i = 0; i < Math.random() * 3 + 1; i++) zalgoChar += getRandomZalgoChar('mid');
+        for (let i = 0; i < Math.random() * 3 + 1; i++) zalgoChar += getRandomZalgoChar('down');
+        return zalgoChar;
+      }).join('');
+    }
+
+    function generateZalgo() {
+      const text = document.getElementById("text-input").value;
+      const zalgoText = generateZalgoText(text);
+      document.getElementById("output").textContent = zalgoText;
+    }
+  </script>
+</body>
+</html>
