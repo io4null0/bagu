@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LINE荒らしツール</title>
+  <title>バグ文字生成ツール</title>
   <style>
     /* Reset */
     * {
@@ -80,16 +80,33 @@
       color: #ff6347;
       border: 1px solid #444;
     }
+
+    /* Description styling */
+    .description {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #444;
+      border-radius: 4px;
+      font-size: 0.9em;
+      color: #ddd;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>LINE荒らしツール</h1>
+    <h1>バグ文字生成ツール</h1>
     <label for="text-input">文字を入力:</label>
     <input type="text" id="text-input" placeholder="Enter your text here">
     <button onclick="generateZalgo()">バグ文字を生成</button>
 
     <div id="output"></div>
+
+    <div class="description">
+      <p>ゲームの名前などに使う事ができます。更にバグらせたい時は、作ったバグ文字をもう一度バグらせると作れます。</p>
+<p>作成者:aaa</p>
+
+    </div>
   </div>
 
   <script>
@@ -120,6 +137,5 @@
       document.getElementById("output").textContent = zalgoText;
     }
   </script>
-<h4>作成者:aaa</h4>
 </body>
 </html>
