@@ -1,6 +1,6 @@
 const CACHE_NAME = 'chatbot-cache-v1';
 const urlsToCache = [
-  './main.html',
+  './bagumozi.html',
   './style.css',
   './script.js',
   './images/bot-icon.png',
