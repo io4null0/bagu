@@ -1,7 +1,7 @@
 {
-  "name": "アシスタント",
-  "short_name": "アシスタント",
-  "start_url": "./main.html",
+  "name": "バグ文字生成",
+  "short_name": "バグ文字生成",
+  "start_url": "./bagumozi.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#007bff",
