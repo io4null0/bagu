@@ -4,6 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>バグ文字生成ツール</title>
+  <!-- マニフェストファイル -->
+<link rel="manifest" href="./manifest.json">
+<!-- サービスワーカーの登録 -->
+<script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then((registration) => {
+          console.log('ServiceWorker registration successful:', registration);
+        })
+        .catch((error) => {
+          console.error('ServiceWorker registration failed:', error);
+        });
+    });
+  }
+</script>
   <style>
     /* Reset */
     * {
