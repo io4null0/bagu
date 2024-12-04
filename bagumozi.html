@@ -5,21 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>バグ文字生成ツール</title>
   <!-- マニフェストファイル -->
-<link rel="manifest" href="./manifest.json">
-<!-- サービスワーカーの登録 -->
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('./service-worker.js')
-        .then((registration) => {
-          console.log('ServiceWorker registration successful:', registration);
-        })
-        .catch((error) => {
-          console.error('ServiceWorker registration failed:', error);
-        });
-    });
-  }
-</script>
+  <link rel="manifest" href="./manifest.json">
+  <!-- サービスワーカーの登録 -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then((registration) => {
+            console.log('ServiceWorker registration successful:', registration);
+          })
+          .catch((error) => {
+            console.error('ServiceWorker registration failed:', error);
+          });
+      });
+    }
+  </script>
   <style>
     /* Reset */
     * {
@@ -97,7 +97,6 @@
       border: 1px solid #444;
     }
 
-    /* Description styling */
     .description {
       margin-top: 20px;
       padding: 10px;
@@ -106,6 +105,13 @@
       font-size: 0.9em;
       color: #ddd;
       line-height: 1.6;
+    }
+
+    .button-group {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+      justify-content: center;
     }
   </style>
 </head>
@@ -118,10 +124,13 @@
 
     <div id="output"></div>
 
+    <div class="button-group">
+      <button onclick="copyToClipboard()">クリップボードにコピー</button>
+    </div>
+
     <div class="description">
       <p>ゲームの名前などに使う事ができます。更にバグらせたい時は、作ったバグ文字をもう一度バグらせると作れます。</p>
-<p>作成者:aaa</p>
-
+      <p>作成者: aaa</p>
     </div>
   </div>
 
@@ -151,6 +160,21 @@
       const text = document.getElementById("text-input").value;
       const zalgoText = generateZalgoText(text);
       document.getElementById("output").textContent = zalgoText;
+    }
+
+    function copyToClipboard() {
+      const output = document.getElementById("output").textContent;
+      if (output) {
+        navigator.clipboard.writeText(output)
+          .then(() => {
+            alert("クリップボードにコピーしました！");
+          })
+          .catch((err) => {
+            console.error("クリップボードへのコピーに失敗しました:", err);
+          });
+      } else {
+        alert("コピーするテキストがありません！");
+      }
     }
   </script>
 </body>
