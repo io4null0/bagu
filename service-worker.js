@@ -5,7 +5,7 @@ const urlsToCache = [
   './script.js',
   './images/bot-icon.png',
   './images/user-icon.png',
-  './images/icon-192x192.png',
+  '無題86_20241122102704.png',
   './images/icon-512x512.png'
 ];
 
