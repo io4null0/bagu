@@ -250,7 +250,7 @@
 
     function authenticateModerator() {
       const password = document.getElementById("moderator-password").value;
-      if (password === "moderatorPassword123") {
+      if (password === "mod1324") {
         document.cookie = "moderator=true;path=/;max-age=31536000"; // 1年有効
         logInfo("モデレーター認証に成功しました");
         document.getElementById("moderator-auth").style.display = "none";
